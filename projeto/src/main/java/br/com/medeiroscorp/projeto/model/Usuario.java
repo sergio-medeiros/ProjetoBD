@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="tbl_usuario")
 public class Usuario {
@@ -29,6 +31,7 @@ public class Usuario {
 	@Column(name="senha",length=20, nullable=false)
 	private String senha;
 	
+	@JsonIgnoreProperties("listaUsuarios")
 	@ManyToOne
 	private Departamento depto;
 	

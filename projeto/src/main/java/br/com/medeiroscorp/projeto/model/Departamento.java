@@ -32,6 +32,9 @@ public class Departamento {
 	@OneToMany(mappedBy="depto", cascade=CascadeType.ALL)
 	private List<Usuario> listaUsuarios;
 	
+	public List<Usuario> getListaUsuarios(){
+			return listaUsuarios;
+	}
 
 	public int getId() {
 		return id;
