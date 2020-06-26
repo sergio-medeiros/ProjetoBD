@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,12 +26,18 @@ public class Usuario {
 	@Column(name="racf", length=7, nullable=false, unique=true)
 	private String racf;
 	
-	@Column(name="senha", length=30)
+	@Column(name="senha",length=20, nullable=false)
 	private String senha;
 	
-	@Column(name="setor", length=50)
-	private String setor;
+	@ManyToOne
+	private Departamento depto;
 	
+	public Departamento getDepto() {
+		return depto;
+	}
+	public void setDepto(Departamento depto) {
+		this.depto = depto;
+	}
 	@Column(name="linkfoto", length=200)
 	private String linkfoto;
 	
@@ -65,12 +72,7 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public String getSetor() {
-		return setor;
-	}
-	public void setSetor(String setor) {
-		this.setor = setor;
-	}
+
 	public String getLinkfoto() {
 		return linkfoto;
 	}
