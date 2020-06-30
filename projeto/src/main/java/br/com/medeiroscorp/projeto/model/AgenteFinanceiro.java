@@ -30,8 +30,17 @@ public class AgenteFinanceiro {
 	private float volume;
 	
 	@JsonIgnoreProperties("agente")
-	@OneToMany(mappedBy="agente", cascade=CascadeType.All)
-	private List<Transacao> listaTrasacaoes;
+	@OneToMany(mappedBy="agente", cascade=CascadeType.ALL)
+	private List<Transacao> listaTransacoes;
+
+	
+	public List<Transacao> getListaTransacoes() {
+		return listaTransacoes;
+	}
+
+	public void setListaTransacoes(List<Transacao> listaTransacoes) {
+		this.listaTransacoes = listaTransacoes;
+	}
 
 	public int getId() {
 		return id;

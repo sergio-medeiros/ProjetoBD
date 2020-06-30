@@ -16,7 +16,7 @@ import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="mtb310_trasaction")
+@Table(name="mtb310_transaction")
 public class Transacao {
 	
 	@Id
@@ -45,6 +45,7 @@ public class Transacao {
 	@JoinColumn(name="ag_financeiro")
 	private AgenteFinanceiro agente;
 
+	
 	public int getId() {
 		return id;
 	}
