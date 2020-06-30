@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import br.com.medeiroscorp.projeto.dao.DepartamentoDAO;
 import br.com.medeiroscorp.projeto.model.Departamento;
 
 @RestController
+@CrossOrigin("*")
 public class DepartamentoController {
 
 		@Autowired
@@ -23,7 +25,7 @@ public class DepartamentoController {
 			return lista;
 		}
 		
-@GetMapping("/departamento/{id}")
+@GetMapping("/departamentos/{id}")
 public ResponseEntity<Departamento> buscarPeloId(@PathVariable int  id){
 	Departamento depto = dao.findById(id).orElse(null);
 	if (depto != null) {
